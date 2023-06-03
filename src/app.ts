@@ -16,7 +16,6 @@ app.use(
 )
 
 // application routes
-
 app.use('/api/v1/users/', usersRouter)
 
 app.get('/', (req: Request, res: Response) => {
