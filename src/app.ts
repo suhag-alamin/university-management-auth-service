@@ -20,11 +20,8 @@ app.use(
 app.use('/api/v1/users/', UserRoutes)
 
 // testing
-// app.get('/', (req: Request, res: Response, next: NextFunction) => {
-//   // res.send('Hello World!')
-//   // throw new apiError(400, 'halar error')
-//   // next('halar error')
-//   throw new Error('error')
+// app.get('/', async (req: Request, res: Response, next: NextFunction) => {
+//   console.log(x)
 // })
 
 // global error handler
