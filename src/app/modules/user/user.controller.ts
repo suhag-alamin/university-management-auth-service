@@ -1,5 +1,5 @@
 import { RequestHandler } from 'express';
-import { UserService } from './user.services';
+import { UserService } from './user.service';
 
 const createUserToDB: RequestHandler = async (req, res, next) => {
   try {
@@ -10,8 +10,8 @@ const createUserToDB: RequestHandler = async (req, res, next) => {
       message: 'User Created Successfully',
       data: result,
     });
-  } catch (err) {
-    next(err);
+  } catch (error) {
+    next(error);
   }
 };
 
