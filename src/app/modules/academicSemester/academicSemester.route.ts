@@ -14,7 +14,13 @@ router.post(
 router.get('/get-semester', AcademicSemesterController.getAllSemesterFromDB);
 router.get(
   '/get-semester/:id',
-  AcademicSemesterController.getSingleAcademicSemesterFromDB
+  AcademicSemesterController.getSingleSemesterFromDB
+);
+
+router.patch(
+  '/update-semester/:id',
+  validateRequest(AcademicSemesterValidation.updateAcademicSemesterZodSchema),
+  AcademicSemesterController.updateSemesterToDB
 );
 
 export const AcademicSemesterRoutes = router;
