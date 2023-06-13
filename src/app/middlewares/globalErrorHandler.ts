@@ -10,7 +10,7 @@ import { errorLogger } from '../../shared/logger';
 import handleZodError from '../../errors/handleZodError';
 import handleCastError from '../../errors/handleCastError';
 
-const globalErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
+const globalErrorHandler: ErrorRequestHandler = (error, req, res) => {
   config.env === 'development' ? console.log(error) : errorLogger.error(error);
 
   let statusCode = 500;
@@ -63,8 +63,6 @@ const globalErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
   });
 
   res.status(400).json({ error: error });
-
-  next();
 };
 
 export default globalErrorHandler;

@@ -23,4 +23,9 @@ router.patch(
   AcademicSemesterController.updateSemesterToDB
 );
 
+router.delete(
+  '/delete-semester/:id',
+  AcademicSemesterController.deleteSemesterToDB
+);
+
 export const AcademicSemesterRoutes = router;
