@@ -18,7 +18,6 @@ const createSemesterToDB = catchAsync(async (req: Request, res: Response) => {
     statusCode: httpStatus.OK,
     success: true,
     message: 'Academic semester is created successfully',
-    meta: null,
     data: result,
   });
 });
