@@ -1,9 +1,12 @@
 import { Request, Response } from 'express';
-import catchAsync from '../../../shared/catchAsync';
-import { AcademicFacultyService } from './academicFaculty.service';
-import sendResponse from '../../../shared/sendResponse';
-import { IAcademicFaculty } from './academicFaculty.interface';
 import httpStatus from 'http-status';
+import { paginationFields } from '../../../constant/pagination';
+import catchAsync from '../../../shared/catchAsync';
+import pick from '../../../shared/pick';
+import sendResponse from '../../../shared/sendResponse';
+import { academicFacultyFilterableFields } from './academicFaculty.constant';
+import { IAcademicFaculty } from './academicFaculty.interface';
+import { AcademicFacultyService } from './academicFaculty.service';
 
 const createAcademicFaculty = catchAsync(
   async (req: Request, res: Response) => {
@@ -23,7 +26,13 @@ const createAcademicFaculty = catchAsync(
 );
 
 const getAcademicFaculty = catchAsync(async (req: Request, res: Response) => {
-  const result = await AcademicFacultyService.getAcademicFacultyFromDB();
+  const filters = pick(req.query, academicFacultyFilterableFields);
+  const paginationOptions = pick(req.query, paginationFields);
+
+  const result = await AcademicFacultyService.getAcademicFacultyFromDB(
+    filters,
+    paginationOptions
+  );
 
   sendResponse<IAcademicFaculty[]>(res, {
     statusCode: httpStatus.OK,
@@ -34,7 +43,20 @@ const getAcademicFaculty = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const getSingleFaculty = catchAsync(async (req: Request, res: Response) => {
+  const id = req.params.id;
+
+  const result = await AcademicFacultyService.getSingleFacultyFromDB(id);
+  sendResponse<IAcademicFaculty>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Semester retrieved successfully!',
+    data: result,
+  });
+});
+
 export const AcademicFacultyController = {
   createAcademicFaculty,
   getAcademicFaculty,
+  getSingleFaculty,
 };
