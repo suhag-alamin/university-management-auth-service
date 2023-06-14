@@ -1,6 +1,7 @@
 import path from 'path';
 import { createLogger, format, transports } from 'winston';
 import DailyRotateFile from 'winston-daily-rotate-file';
+import config from '../config';
 
 const { combine, timestamp, label, printf } = format;
 
@@ -16,43 +17,43 @@ const logger = createLogger({
   level: 'info',
   format: combine(label({ label: 'SM' }), timestamp(), myFormat),
   transports: [
-    new transports.Console(),
-
-    new DailyRotateFile({
-      filename: path.join(
-        process.cwd(),
-        'logs',
-        'winston',
-        'successes',
-        'phu-%DATE%-success.log'
-      ),
-      datePattern: 'YYYY-DD-MM-HH',
-      zippedArchive: true,
-      maxSize: '20m',
-      maxFiles: '14d',
-    }),
+    config.env === 'development'
+      ? new transports.Console()
+      : new DailyRotateFile({
+          filename: path.join(
+            process.cwd(),
+            'logs',
+            'winston',
+            'successes',
+            'phu-%DATE%-success.log'
+          ),
+          datePattern: 'YYYY-DD-MM-HH',
+          zippedArchive: true,
+          maxSize: '20m',
+          maxFiles: '14d',
+        }),
   ],
 });
 const errorLogger = createLogger({
   level: 'error',
   format: combine(label({ label: 'SM' }), timestamp(), myFormat),
   transports: [
-    new transports.Console(),
-
-    new DailyRotateFile({
-      filename: path.join(
-        process.cwd(),
-        'logs',
-        'winston',
-        'errors',
-        'phu-%DATE%-error.log'
-      ),
-      datePattern: 'YYYY-DD-MM-HH',
-      zippedArchive: true,
-      maxSize: '20m',
-      maxFiles: '14d',
-    }),
+    config.env === 'development'
+      ? new transports.Console()
+      : new DailyRotateFile({
+          filename: path.join(
+            process.cwd(),
+            'logs',
+            'winston',
+            'errors',
+            'phu-%DATE%-error.log'
+          ),
+          datePattern: 'YYYY-DD-MM-HH',
+          zippedArchive: true,
+          maxSize: '20m',
+          maxFiles: '14d',
+        }),
   ],
 });
 
-export { logger, errorLogger };
+export { errorLogger, logger };
