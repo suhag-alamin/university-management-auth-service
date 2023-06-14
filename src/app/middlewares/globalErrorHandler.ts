@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-unused-expressions */
 import { ErrorRequestHandler } from 'express';
 import { Error } from 'mongoose';
@@ -10,7 +11,7 @@ import { errorLogger } from '../../shared/logger';
 import handleZodError from '../../errors/handleZodError';
 import handleCastError from '../../errors/handleCastError';
 
-const globalErrorHandler: ErrorRequestHandler = (error, req, res) => {
+const globalErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
   config.env === 'development' ? console.log(error) : errorLogger.error(error);
 
   let statusCode = 500;
