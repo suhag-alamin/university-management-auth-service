@@ -86,8 +86,31 @@ const getSingleFacultyFromDB = async (
   return result;
 };
 
+const updateFacultyToDB = async (
+  id: string,
+  payload: IAcademicFaculty
+): Promise<IAcademicFaculty | null> => {
+  const result = await AcademicFaculty.findOneAndUpdate(
+    {
+      _id: id,
+    },
+    payload,
+    {
+      new: true,
+    }
+  );
+  return result;
+};
+
+const deleteFacultyFromDB = async (id: string) => {
+  await AcademicFaculty.findByIdAndDelete(id);
+  return null;
+};
+
 export const AcademicFacultyService = {
   createAcademicFacultyToDB,
   getAcademicFacultyFromDB,
   getSingleFacultyFromDB,
+  updateFacultyToDB,
+  deleteFacultyFromDB,
 };
