@@ -66,7 +66,7 @@ const getAcademicFacultyFromDB = async (
     .skip(skip)
     .limit(limit);
 
-  const total = await AcademicFaculty.countDocuments();
+  const total = await AcademicFaculty.countDocuments(whereConditions);
 
   return {
     meta: {
@@ -103,8 +103,8 @@ const updateFacultyToDB = async (
 };
 
 const deleteFacultyFromDB = async (id: string) => {
-  await AcademicFaculty.findByIdAndDelete(id);
-  return null;
+  const result = await AcademicFaculty.findByIdAndDelete(id);
+  return result;
 };
 
 export const AcademicFacultyService = {

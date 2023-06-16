@@ -68,7 +68,7 @@ const getAllSemester = async (
     .skip(skip)
     .limit(limit);
 
-  const total = await AcademicSemester.countDocuments();
+  const total = await AcademicSemester.countDocuments(whereConditions);
 
   return {
     meta: {
@@ -114,8 +114,8 @@ const updateSemester = async (
 const deleteSemester = async (
   id: string
 ): Promise<IAcademicSemester | null> => {
-  await AcademicSemester.findByIdAndDelete(id);
-  return null;
+  const result = await AcademicSemester.findByIdAndDelete(id);
+  return result;
 };
 
 export const AcademicSemesterService = {

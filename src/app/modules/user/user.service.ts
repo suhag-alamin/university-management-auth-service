@@ -79,6 +79,8 @@ const createStudentToDB = async (
   return newUserData;
 };
 
+// ! need to do create faculty and create admin
+
 export const UserService = {
   createStudentToDB,
 };
