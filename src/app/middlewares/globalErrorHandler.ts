@@ -5,14 +5,13 @@ import { Error } from 'mongoose';
 import { ZodError } from 'zod';
 import config from '../../config';
 import ApiError from '../../errors/ApiError';
-import handleValidationError from '../../errors/handleValidationError';
-import { IGenericErrorMessage } from '../../interfaces/error';
-import { errorLogger } from '../../shared/logger';
-import handleZodError from '../../errors/handleZodError';
 import handleCastError from '../../errors/handleCastError';
+import handleValidationError from '../../errors/handleValidationError';
+import handleZodError from '../../errors/handleZodError';
+import { IGenericErrorMessage } from '../../interfaces/error';
 
 const globalErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
-  config.env === 'development' ? console.log(error) : errorLogger.error(error);
+  config.env === 'development' ? console.log(error) : console.log(error);
 
   let statusCode = 500;
   let message = 'Something went wrong';
