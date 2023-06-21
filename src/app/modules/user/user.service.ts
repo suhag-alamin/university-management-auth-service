@@ -4,10 +4,12 @@ import { AcademicSemester } from '../academicSemester/academicSemester.model';
 import { IStudent } from '../student/student.interface';
 import { IUser } from './user.interface';
 import { User } from './user.model';
-import { generateStudentId } from './user.utils';
+import { generateFacultyId, generateStudentId } from './user.utils';
 import { Student } from '../student/student.model';
 import ApiError from '../../../errors/ApiError';
 import httpStatus from 'http-status';
+import { Faculty } from '../faculty/faculty.model';
+import { IFaculty } from '../faculty/faculty.interface';
 
 const createStudentToDB = async (
   student: IStudent,
@@ -79,8 +81,70 @@ const createStudentToDB = async (
   return newUserData;
 };
 
+const createFacultyToDB = async (
+  faculty: IFaculty,
+  user: IUser
+): Promise<IUser | null> => {
+  // default password
+  if (!user.password) {
+    user.password = config.default_faculty_pass as string;
+  }
+  // set role
+  user.role = 'faculty';
+
+  // generate faculty id
+  let newUserAllData = null;
+  const session = await mongoose.startSession();
+  try {
+    session.startTransaction();
+
+    const id = await generateFacultyId();
+    user.id = id;
+    faculty.id = id;
+
+    const newFaculty = await Faculty.create([faculty], { session });
+
+    if (!newFaculty.length) {
+      throw new ApiError(httpStatus.BAD_REQUEST, 'Failed to create faculty ');
+    }
+
+    user.faculty = newFaculty[0]._id;
+
+    const newUser = await User.create([user], { session });
+
+    if (!newUser.length) {
+      throw new ApiError(httpStatus.BAD_REQUEST, 'Failed to create user');
+    }
+    newUserAllData = newUser[0];
+
+    await session.commitTransaction();
+    await session.endSession();
+  } catch (error) {
+    await session.abortTransaction();
+    await session.endSession();
+    throw error;
+  }
+
+  if (newUserAllData) {
+    newUserAllData = await User.findOne({ id: newUserAllData.id }).populate({
+      path: 'faculty',
+      populate: [
+        {
+          path: 'academicDepartment',
+        },
+        {
+          path: 'academicFaculty',
+        },
+      ],
+    });
+  }
+
+  return newUserAllData;
+};
+
 // ! need to do create faculty and create admin
 
 export const UserService = {
   createStudentToDB,
+  createFacultyToDB,
 };

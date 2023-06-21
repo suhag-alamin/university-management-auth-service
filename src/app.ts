@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import cors from 'cors';
 import express, { Application, NextFunction, Request, Response } from 'express';
 import globalErrorHandler from './app/middlewares/globalErrorHandler';
@@ -40,7 +41,6 @@ app.use((req: Request, res: Response, next: NextFunction) => {
       },
     ],
   });
-  next();
 });
 
 export default app;
