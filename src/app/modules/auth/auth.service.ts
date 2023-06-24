@@ -22,34 +22,12 @@ const loginUser = async (payload: ILoginUser): Promise<ILoginUserResponse> => {
     throw new ApiError(httpStatus.UNAUTHORIZED, 'Password does not match');
   }
 
-  // create jwt token / access token and refresh token
-  // const accessToken = jwt.sign(
-  //   {
-  //     id: isUserExist.id,
-  //     role: isUserExist.role,
-  //   },
-  //   config?.jwt?.secret as Secret,
-  //   {
-  //     expiresIn: config.jwt.expiration,
-  //   }
-  // );
   const { id: userId, role, needPasswordChange } = isUserExist;
   const accessToken = JwtHelpers.createToken(
     { id: userId, role },
     config.jwt.secret as Secret,
     config.jwt.expiration as string
   );
-
-  // const refreshToken = jwt.sign(
-  //   {
-  //     id: isUserExist.id,
-  //     role: isUserExist.role,
-  //   },
-  //   config.jwt.refresh_secret as Secret,
-  //   {
-  //     expiresIn: config.jwt.refresh_expiration,
-  //   }
-  // );
 
   const refreshToken = JwtHelpers.createToken(
     { id: userId, role },
