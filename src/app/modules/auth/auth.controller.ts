@@ -1,10 +1,10 @@
 import { Request, Response } from 'express';
+import httpStatus from 'http-status';
+import config from '../../../config';
 import catchAsync from '../../../shared/catchAsync';
 import sendResponse from '../../../shared/sendResponse';
-import httpStatus from 'http-status';
-import { AuthService } from './auth.service';
 import { ILoginUserResponse, IRefreshTokenResponse } from './auth.interface';
-import config from '../../../config';
+import { AuthService } from './auth.service';
 
 const loginUserController = catchAsync(async (req: Request, res: Response) => {
   const { ...loginData } = req.body;
@@ -52,7 +52,23 @@ const refreshTokenController = catchAsync(
   }
 );
 
+const changePasswordController = catchAsync(
+  async (req: Request, res: Response) => {
+    const user = req.user;
+    const { ...passwordData } = req.body;
+
+    await AuthService.changePassword(user, passwordData);
+
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: 'Password Changed successfully',
+    });
+  }
+);
+
 export const AuthController = {
   loginUserController,
   refreshTokenController,
+  changePasswordController,
 };

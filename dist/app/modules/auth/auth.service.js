@@ -46,7 +46,7 @@ const refreshToken = (token) => __awaiter(void 0, void 0, void 0, function* () {
         verifiedToken = jwtHelpers_1.JwtHelpers.verifyToken(token, config_1.default.jwt.refresh_secret);
     }
     catch (error) {
-        throw new ApiError_1.default(http_status_1.default.FORBIDDEN, 'Invalid fresh token');
+        throw new ApiError_1.default(http_status_1.default.FORBIDDEN, 'Invalid refresh token');
     }
     // checking deleted users refresh token
     const user = new user_model_1.User();
