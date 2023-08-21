@@ -6,7 +6,7 @@ import { AcademicDepartmentController } from './academicDepartment.controller';
 const router = express.Router();
 
 router.post(
-  '/create',
+  '/',
   validateRequest(
     AcademicDepartmentValidation.createAcademicDepartmentZodSchema
   ),
@@ -17,13 +17,13 @@ router.get('/', AcademicDepartmentController.getAllDepartments);
 router.get('/:id', AcademicDepartmentController.getSingleDepartment);
 
 router.patch(
-  '/update/:id',
+  '/:id',
   validateRequest(
     AcademicDepartmentValidation.updateAcademicDepartmentZodSchema
   ),
   AcademicDepartmentController.updateDepartment
 );
 
-router.delete('/delete/:id', AcademicDepartmentController.deleteDepartment);
+router.delete('/:id', AcademicDepartmentController.deleteDepartment);
 
 export const AcademicDepartmentRoutes = router;

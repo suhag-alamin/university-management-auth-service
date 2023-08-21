@@ -9,11 +9,11 @@ router.get('/:id', FacultyController.getSingleFaculty);
 router.get('/', FacultyController.getAllFaculties);
 
 router.patch(
-  '/update/:id',
+  '/:id',
   validateRequest(FacultyValidation.updateFacultyZodSchema),
   FacultyController.updateFaculty
 );
 
-router.delete('/delete/:id', FacultyController.deleteFaculty);
+router.delete('/:id', FacultyController.deleteFaculty);
 
 export const FacultyRoutes = router;

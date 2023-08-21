@@ -8,7 +8,7 @@ import auth from '../../middlewares/auth';
 const router = express.Router();
 
 router.post(
-  '/create',
+  '/',
   validateRequest(AcademicFacultyValidation.createAcademicFacultyZodSchema),
   auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
   AcademicFacultyController.createAcademicFaculty
@@ -36,7 +36,7 @@ router.get(
 );
 
 router.patch(
-  '/update/:id',
+  '/:id',
   validateRequest(AcademicFacultyValidation.updateAcademicFacultyZodSchema),
   auth(
     ENUM_USER_ROLE.SUPER_ADMIN,
@@ -47,7 +47,7 @@ router.patch(
 );
 
 router.delete(
-  '/delete/:id',
+  '/:id',
   auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
   AcademicFacultyController.deleteFaculty
 );
