@@ -1,1830 +1,1513 @@
 {
-	"info": {
-		"_postman_id": "d75ae597-eae9-4d8a-8a87-78bba9af987c",
-		"name": "University Management",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "22433617"
-	},
-	"item": [
-		{
-			"name": "Auth Service",
-			"item": [
-				{
-					"name": "AcademicDepartment",
-					"item": [
-						{
-							"name": "Get Departments",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{UMPH}}/academic-department",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"academic-department"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Create Department",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"title\" : \"Department of Computer Science\",\r\n     \"academicFaculty\": \"6489918d26e556e4303286fe\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{UMPH}}/academic-department",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"academic-department"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Get Single Department",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{UMPH}}/academic-department/648ca039b9cdee71c35a5a52",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"academic-department",
-										"648ca039b9cdee71c35a5a52"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Update Department",
-							"request": {
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"title\" : \"Department of Computer Science\",\r\n     \"academicFaculty\": \"6489918d26e556e4303286fe\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{UMPH}}/academic-department/648ca039b9cdee71c35a5a52",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"academic-department",
-										"648ca039b9cdee71c35a5a52"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Delete Department",
-							"request": {
-								"method": "DELETE",
-								"header": [],
-								"url": {
-									"raw": "{{UMPH}}/academic-department/648ca039b9cdee71c35a5a52",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"academic-department",
-										"648ca039b9cdee71c35a5a52"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Academic Faculty",
-					"item": [
-						{
-							"name": "Create Faculty",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"title\": \"Faculty of Arts and Social Science\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{UMPH}}/academic-faculty",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"academic-faculty"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Get All Faculty",
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "authorization",
-										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIwMDMwMDAwMiIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNjg3NjA0NjkzLCJleHAiOjE2ODc2OTEwOTN9.OXU9Ih6PFyhQuH_kcytGTiNmZ4vaAIFREHW-F4ptvag",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{UMPH}}/academic-faculty",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"academic-faculty"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Get Faculty with pagination",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{UMPH}}/academic-faculty?page=1&limit=10",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"academic-faculty"
-									],
-									"query": [
-										{
-											"key": "page",
-											"value": "1"
-										},
-										{
-											"key": "limit",
-											"value": "10"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Search Faculty",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{UMPH}}/academic-faculty?searchTerm=Science",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"academic-faculty"
-									],
-									"query": [
-										{
-											"key": "searchTerm",
-											"value": "Science"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Filter Faculty",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{UMPH}}/academic-faculty?title=Faculty of Science and Engineering",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"academic-faculty"
-									],
-									"query": [
-										{
-											"key": "title",
-											"value": "Faculty of Science and Engineering"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Get Faculty with sorting",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{UMPH}}/academic-faculty?sortBy=createdAt&sortOrder=desc",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"academic-faculty"
-									],
-									"query": [
-										{
-											"key": "sortBy",
-											"value": "createdAt"
-										},
-										{
-											"key": "sortOrder",
-											"value": "desc"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Get Single Faculty",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{UMPH}}/academic-faculty/648991a426e556e430328702",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"academic-faculty",
-										"648991a426e556e430328702"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Update Faculty",
-							"request": {
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \r\n    \"title\": \"Faculty of Science and Engineering\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{UMPH}}/academic-faculty/648958de97f28dd102177fc5",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"academic-faculty",
-										"648958de97f28dd102177fc5"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Delete Faculty",
-							"request": {
-								"method": "DELETE",
-								"header": [],
-								"url": {
-									"raw": "{{UMPH}}/academic-faculty/648991a426e556e430328702",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"academic-faculty",
-										"648991a426e556e430328702"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Academic Semester",
-					"item": [
-						{
-							"name": "Create Academic Semester",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"title\": \"Fall\",\r\n    \"year\": \"2020\",\r\n    \"code\" :\"03\",\r\n    \"startMonth\" : \"January\",\r\n    \"endMonth\": \"May\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{UMPH}}/academic-semester",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"academic-semester"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Get Semester wtih sorting",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{UMPH}}/academic-semester?sortBy=year&sortOrder=asc",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"academic-semester"
-									],
-									"query": [
-										{
-											"key": "sortBy",
-											"value": "year"
-										},
-										{
-											"key": "sortOrder",
-											"value": "asc"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Search Semester",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{UMPH}}/academic-semester?searchTerm=2027",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"academic-semester"
-									],
-									"query": [
-										{
-											"key": "searchTerm",
-											"value": "2027"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Filter Semester",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{UMPH}}/academic-semester?year=2020&title=Fall&code=03",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"academic-semester"
-									],
-									"query": [
-										{
-											"key": "year",
-											"value": "2020"
-										},
-										{
-											"key": "title",
-											"value": "Fall"
-										},
-										{
-											"key": "code",
-											"value": "03"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Get All semester",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{UMPH}}/academic-semester",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"academic-semester"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Get Single Semester",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{UMPH}}/academic-semester/64895937f335e9e7015e21aa",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"academic-semester",
-										"64895937f335e9e7015e21aa"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Update semester",
-							"request": {
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \r\n    \"title\": \"Fall\",\r\n    \"code\": \"03\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{UMPH}}/academic-semester/64895937f335e9e7015e21aa",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"academic-semester",
-										"64895937f335e9e7015e21aa"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Delete Semester",
-							"request": {
-								"method": "DELETE",
-								"header": [],
-								"url": {
-									"raw": "{{UMPH}}/academic-semester/648844502cbf8be4ba367f50",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"academic-semester",
-										"648844502cbf8be4ba367f50"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "User",
-					"item": [
-						{
-							"name": "Student",
-							"item": [
-								{
-									"name": "Get students",
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{UMPH}}/students",
-											"host": [
-												"{{UMPH}}"
-											],
-											"path": [
-												"students"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Get Single Student",
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{UMPH}}/students/648ca2402e18bd9924cc015e",
-											"host": [
-												"{{UMPH}}"
-											],
-											"path": [
-												"students",
-												"648ca2402e18bd9924cc015e"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Update Student",
-									"request": {
-										"method": "PATCH",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n    \"name\" : {\r\n        \"middleName\" : \"\"\r\n    },\r\n    \"contactNo\": \"01791490304\"\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{UMPH}}/students/200300001",
-											"host": [
-												"{{UMPH}}"
-											],
-											"path": [
-												"students",
-												"200300001"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Create Student",
-									"request": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n    \"password\": \"123456\",     \r\n\r\n    \"student\": {\r\n        \"name\": {\r\n            \"firstName\": \"Suhag\",\r\n            \"lastName\": \"Al Amin\",\r\n            \"middleName\": \"\"\r\n        },\r\n        \"dateOfBirth\": \"22-10-2000\",\r\n        \"gender\": \"male\",\r\n        \"bloodGroup\": \"B+\",\r\n        \"email\": \"user@gmail.com\",\r\n        \"contactNo\": \"user_4\",\r\n        \"emergencyContactNo\": \"01600000000\",\r\n        \"presentAddress\": \"Tangail\",\r\n        \"permanentAddress\": \"Tangail\",\r\n        \"academicFaculty\": \"6489918d26e556e4303286fe\",\r\n        \"academicDepartment\": \"648ca039b9cdee71c35a5a52\",\r\n        \"academicSemester\": \"64895937f335e9e7015e21aa\",\r\n        \"guardian\": {\r\n            \"fatherName\": \"MD.ABBU\",\r\n            \"fatherOccupation\": \"Teacher\",\r\n            \"fatherContactNo\": \"01600000000\",\r\n            \"motherName\": \"Mrs.Ammu\",\r\n            \"motherOccupation\": \"Housewife\",\r\n            \"motherContactNo\": \"01600000000\",\r\n            \"address\": \"Tangail\"\r\n        },\r\n        \"localGuardian\": {\r\n            \"name\": \"Nai\",\r\n            \"occupation\": \"Service Holder\",\r\n            \"contactNo\": \"01600000000\",\r\n            \"address\": \"Dhaka\"\r\n        }\r\n\r\n      }\r\n}\r\n",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{UMPH}}/users/create-student",
-											"host": [
-												"{{UMPH}}"
-											],
-											"path": [
-												"users",
-												"create-student"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Delete Student",
-									"request": {
-										"method": "DELETE",
-										"header": [],
-										"url": {
-											"raw": "{{UMPH}}/students/200300001",
-											"host": [
-												"{{UMPH}}"
-											],
-											"path": [
-												"students",
-												"200300001"
-											]
-										}
-									},
-									"response": []
-								}
-							]
-						},
-						{
-							"name": "Admin",
-							"item": [
-								{
-									"name": "Get All Admin",
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{UMPH}}/admins",
-											"host": [
-												"{{UMPH}}"
-											],
-											"path": [
-												"admins"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Get Single Admin",
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{UMPH}}/admins/A-00001",
-											"host": [
-												"{{UMPH}}"
-											],
-											"path": [
-												"admins",
-												"A-00001"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Create Admin",
-									"request": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n  \r\n    \"admin\": {\r\n        \"name\": {\r\n            \"firstName\": \"Suhag\",\r\n            \"lastName\": \"Al Amin\",\r\n            \"middleName\": \"\"\r\n        },\r\n        \"dateOfBirth\": \"22-10-2000\",\r\n        \"gender\": \"male\",\r\n        \"bloodGroup\": \"B+\",\r\n        \"email\": \"user@gmail.com\",\r\n        \"contactNo\": \"user_4\",\r\n        \"emergencyContactNo\": \"01600000000\",\r\n        \"presentAddress\": \"Tangail\",\r\n        \"permanentAddress\": \"Tangail\",\r\n        \"academicFaculty\": \"6489918d26e556e4303286fe\",\r\n        \"academicDepartment\": \"648ca039b9cdee71c35a5a52\",\r\n        \"managementDepartment\": \"6492df2dde149ff3ec1b6985\",\r\n        \"designation\": \"Admin\"\r\n    }\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{UMPH}}/users/create-admin",
-											"host": [
-												"{{UMPH}}"
-											],
-											"path": [
-												"users",
-												"create-admin"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Update Admin",
-									"request": {
-										"method": "PATCH",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n     \r\n        \"designation\": \"Super Admin\"\r\n    }",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{UMPH}}/admins/A-00001",
-											"host": [
-												"{{UMPH}}"
-											],
-											"path": [
-												"admins",
-												"A-00001"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Delete Admin",
-									"request": {
-										"method": "DELETE",
-										"header": [],
-										"url": {
-											"raw": "{{UMPH}}/admins/F-00003",
-											"host": [
-												"{{UMPH}}"
-											],
-											"path": [
-												"admins",
-												"F-00003"
-											]
-										}
-									},
-									"response": []
-								}
-							]
-						},
-						{
-							"name": "Management Department",
-							"item": [
-								{
-									"name": "Get All Department",
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{UMPH}}/management-departments",
-											"host": [
-												"{{UMPH}}"
-											],
-											"path": [
-												"management-departments"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Get Single Deparment",
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{UMPH}}/management-departments/6492df2dde149ff3ec1b6985",
-											"host": [
-												"{{UMPH}}"
-											],
-											"path": [
-												"management-departments",
-												"6492df2dde149ff3ec1b6985"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Create Department",
-									"request": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n   \"title\": \"Admin\"\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{UMPH}}/management-departments",
-											"host": [
-												"{{UMPH}}"
-											],
-											"path": [
-												"management-departments"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Update Department",
-									"request": {
-										"method": "PATCH",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n    \"title\": \"Super Admin\"\r\n    }",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{UMPH}}/management-departments/6492df2dde149ff3ec1b6985",
-											"host": [
-												"{{UMPH}}"
-											],
-											"path": [
-												"management-departments",
-												"6492df2dde149ff3ec1b6985"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Delete Department",
-									"request": {
-										"method": "DELETE",
-										"header": [],
-										"url": {
-											"raw": "{{UMPH}}/management-departments/6492df2dde149ff3ec1b6985",
-											"host": [
-												"{{UMPH}}"
-											],
-											"path": [
-												"management-departments",
-												"6492df2dde149ff3ec1b6985"
-											]
-										}
-									},
-									"response": []
-								}
-							]
-						},
-						{
-							"name": "Auth",
-							"item": [
-								{
-									"name": "Login",
-									"request": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n    \"id\": \"200300001\",\r\n    \"password\": \"123456\"\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{UMPH}}/auth/login",
-											"host": [
-												"{{UMPH}}"
-											],
-											"path": [
-												"auth",
-												"login"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Refresh token",
-									"request": {
-										"method": "POST",
-										"header": [],
-										"url": {
-											"raw": "{{UMPH}}/auth/refresh-token",
-											"host": [
-												"{{UMPH}}"
-											],
-											"path": [
-												"auth",
-												"refresh-token"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Change Password",
-									"request": {
-										"method": "PATCH",
-										"header": [
-											{
-												"key": "authorization",
-												"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIwMDMwMDAwMSIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNjg4OTg3ODI2LCJleHAiOjE2ODkwNzQyMjZ9.LGMWJmayZEZb6oUnFsvceVTBXA05D-SesSBBrCLe9W4",
-												"type": "text"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n    \"currentPassword\": \"new123456\",\r\n    \"newPassword\": \"123456\"\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{UMPH}}/auth/change-password",
-											"host": [
-												"{{UMPH}}"
-											],
-											"path": [
-												"auth",
-												"change-password"
-											]
-										}
-									},
-									"response": []
-								}
-							]
-						},
-						{
-							"name": "Faculty",
-							"item": [
-								{
-									"name": "Get All Faculty",
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{UMPH}}/faculties",
-											"host": [
-												"{{UMPH}}"
-											],
-											"path": [
-												"faculties"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Get Single Faculty",
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{UMPH}}/faculties/F-00001",
-											"host": [
-												"{{UMPH}}"
-											],
-											"path": [
-												"faculties",
-												"F-00001"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Create Faculty",
-									"request": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n    \"password\": \"123456\",\r\n    \"faculty\": {\r\n        \"name\": {\r\n            \"firstName\": \"Suhag\",\r\n            \"lastName\": \"Al Amin\",\r\n            \"middleName\": \"\"\r\n        },\r\n        \"dateOfBirth\": \"22-10-2000\",\r\n        \"gender\": \"male\",\r\n        \"bloodGroup\": \"B+\",\r\n        \"email\": \"user@gmail.com\",\r\n        \"contactNo\": \"user_4\",\r\n        \"emergencyContactNo\": \"01600000000\",\r\n        \"presentAddress\": \"Tangail\",\r\n        \"permanentAddress\": \"Tangail\",\r\n        \"academicFaculty\": \"6489918d26e556e4303286fe\",\r\n        \"academicDepartment\": \"648ca039b9cdee71c35a5a52\",\r\n        \"designation\": \"Head of CSE\"\r\n    }\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{UMPH}}/users/create-faculty",
-											"host": [
-												"{{UMPH}}"
-											],
-											"path": [
-												"users",
-												"create-faculty"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Update Faculty",
-									"request": {
-										"method": "PATCH",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n        \"name\": {\r\n            \"firstName\": \"Suhag\",\r\n            \"lastName\": \"Al Amin\",\r\n            \"middleName\": \"\"\r\n        },\r\n        \"dateOfBirth\": \"22-10-2000\",\r\n        \"gender\": \"male\",\r\n        \"bloodGroup\": \"B+\",\r\n        \"email\": \"user@gmail.com\",\r\n        \"contactNo\": \"user_4\",\r\n        \"emergencyContactNo\": \"01600000000\",\r\n        \"presentAddress\": \"Tangail\",\r\n        \"permanentAddress\": \"Tangail\",\r\n        \"academicFaculty\": \"6489918d26e556e4303286fe\",\r\n        \"academicDepartment\": \"648ca039b9cdee71c35a5a52\",\r\n        \"designation\": \"Head of CSE\"\r\n    }",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{UMPH}}/faculties/F-00001",
-											"host": [
-												"{{UMPH}}"
-											],
-											"path": [
-												"faculties",
-												"F-00001"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Delete Faculty",
-									"request": {
-										"method": "DELETE",
-										"header": [],
-										"url": {
-											"raw": "{{UMPH}}/faculties/F-00003",
-											"host": [
-												"{{UMPH}}"
-											],
-											"path": [
-												"faculties",
-												"F-00003"
-											]
-										}
-									},
-									"response": []
-								}
-							]
-						}
-					]
-				}
-			]
-		},
-		{
-			"name": "Core Service",
-			"item": [
-				{
-					"name": "Academic Semester",
-					"item": [
-						{
-							"name": "Create Academic Semester",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"title\": \"Fall\",\r\n    \"year\": \"2021\",\r\n    \"code\" :\"03\",\r\n    \"startMonth\" : \"January\",\r\n    \"endMonth\": \"May\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{UMPH}}/academic-semester/",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"academic-semester",
-										""
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Get Semester wtih sorting",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{UMPH}}/academic-semester?sortBy=year&sortOrder=desc",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"academic-semester"
-									],
-									"query": [
-										{
-											"key": "sortBy",
-											"value": "year"
-										},
-										{
-											"key": "sortOrder",
-											"value": "desc"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Search Semester",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{UMPH}}/academic-semester?searchTerm=fa",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"academic-semester"
-									],
-									"query": [
-										{
-											"key": "searchTerm",
-											"value": "fa"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Filter Semester",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{UMPH}}/academic-semester?year=2020&title=Fall&code=03",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"academic-semester"
-									],
-									"query": [
-										{
-											"key": "year",
-											"value": "2020"
-										},
-										{
-											"key": "title",
-											"value": "Fall"
-										},
-										{
-											"key": "code",
-											"value": "03"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Get All semester",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{UMPH}}/academic-semester?page=1&limit=1",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"academic-semester"
-									],
-									"query": [
-										{
-											"key": "page",
-											"value": "1"
-										},
-										{
-											"key": "limit",
-											"value": "1"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Get Single Semester",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{UMPH}}/academic-semester/32105355-88ff-4297-9d77-8715ec9afa3a",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"academic-semester",
-										"32105355-88ff-4297-9d77-8715ec9afa3a"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Update semester",
-							"request": {
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \r\n    \"title\": \"Fall\",\r\n    \"code\": \"03\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{UMPH}}/academic-semester/32105355-88ff-4297-9d77-8715ec9afa3a",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"academic-semester",
-										"32105355-88ff-4297-9d77-8715ec9afa3a"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Delete Semester",
-							"request": {
-								"method": "DELETE",
-								"header": [],
-								"url": {
-									"raw": "{{UMPH}}/academic-semester/32105355-88ff-4297-9d77-8715ec9afa3a",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"academic-semester",
-										"32105355-88ff-4297-9d77-8715ec9afa3a"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Academic Faculty",
-					"item": [
-						{
-							"name": "Create Faculty",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"title\": \"Faculty of Arts and Social Science\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{UMPH}}/academic-faculty/",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"academic-faculty",
-										""
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Get All Faculty",
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "authorization",
-										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIwMDMwMDAwMiIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNjg3NjA0NjkzLCJleHAiOjE2ODc2OTEwOTN9.OXU9Ih6PFyhQuH_kcytGTiNmZ4vaAIFREHW-F4ptvag",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{UMPH}}/academic-faculty",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"academic-faculty"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Get Faculty with pagination",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{UMPH}}/academic-faculty?page=1&limit=10",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"academic-faculty"
-									],
-									"query": [
-										{
-											"key": "page",
-											"value": "1"
-										},
-										{
-											"key": "limit",
-											"value": "10"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Search Faculty",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{UMPH}}/academic-faculty?searchTerm=Science",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"academic-faculty"
-									],
-									"query": [
-										{
-											"key": "searchTerm",
-											"value": "Science"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Filter Faculty",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{UMPH}}/academic-faculty?title=Faculty of Science and Engineering",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"academic-faculty"
-									],
-									"query": [
-										{
-											"key": "title",
-											"value": "Faculty of Science and Engineering"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Get Faculty with sorting",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{UMPH}}/academic-faculty?sortBy=createdAt&sortOrder=desc",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"academic-faculty"
-									],
-									"query": [
-										{
-											"key": "sortBy",
-											"value": "createdAt"
-										},
-										{
-											"key": "sortOrder",
-											"value": "desc"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Get Single Faculty",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{UMPH}}/academic-faculty/d7b2b224-8355-4017-b20e-0b7e95f14f0b",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"academic-faculty",
-										"d7b2b224-8355-4017-b20e-0b7e95f14f0b"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Update Faculty",
-							"request": {
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \r\n    \"title\": \"Faculty of Science and Engineering\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{UMPH}}/academic-faculty/5ef3f77d-0654-4e09-a734-f0ec658827bc",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"academic-faculty",
-										"5ef3f77d-0654-4e09-a734-f0ec658827bc"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Delete Faculty",
-							"request": {
-								"method": "DELETE",
-								"header": [],
-								"url": {
-									"raw": "{{UMPH}}/academic-faculty/5ef3f77d-0654-4e09-a734-f0ec658827bc",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"academic-faculty",
-										"5ef3f77d-0654-4e09-a734-f0ec658827bc"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Academic Department",
-					"item": [
-						{
-							"name": "Get Departments",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{UMPH}}/academic-department",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"academic-department"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Create Department",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"title\": \"Department of Computer Science\",\r\n    \"academicFaculty\": {\r\n        \"connect\": {\r\n            \"id\": \"5ef3f77d-0654-4e09-a734-f0ec658827bc\"\r\n        }\r\n    }\r\n}\r\n",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{UMPH}}/academic-department/",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"academic-department",
-										""
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Get Single Department",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{UMPH}}/academic-department/23a40690-7697-4ea4-95eb-b8015126cf85",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"academic-department",
-										"23a40690-7697-4ea4-95eb-b8015126cf85"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Update Department",
-							"request": {
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"title\": \"Department of Computer Science\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{UMPH}}/academic-department/23a40690-7697-4ea4-95eb-b8015126cf85",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"academic-department",
-										"23a40690-7697-4ea4-95eb-b8015126cf85"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Delete",
-							"request": {
-								"method": "DELETE",
-								"header": [],
-								"url": {
-									"raw": "{{UMPH}}/academic-department/23a40690-7697-4ea4-95eb-b8015126cf85",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"academic-department",
-										"23a40690-7697-4ea4-95eb-b8015126cf85"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Faculty",
-					"item": [
-						{
-							"name": "Get All Faculty",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{UMPH}}/faculty",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"faculty"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Get Single Faculty",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{UMPH}}/faculty/fa3d9708-5dcc-469d-bfc0-62d4f5e63a71",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"faculty",
-										"fa3d9708-5dcc-469d-bfc0-62d4f5e63a71"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Create Faculty",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"facultyId\": \"F-00001\",\r\n    \"firstName\": \"Suhag\",\r\n    \"lastName\": \"Al Amin\",\r\n    \"gender\": \"male\",\r\n    \"bloodGroup\": \"B+\",\r\n    \"email\": \"user@gmail.com\",\r\n    \"contactNo\": \"0175864645\",\r\n    \"designation\": \"Head of CSE\",\r\n    \"academicFaculty\": {\r\n        \"connect\": {\r\n            \"id\": \"5ef3f77d-0654-4e09-a734-f0ec658827bc\"\r\n        }\r\n    },\r\n    \"academicDepartment\": {\r\n        \"connect\": {\r\n            \"id\": \"23a40690-7697-4ea4-95eb-b8015126cf85\"\r\n        }\r\n    }\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{UMPH}}/faculty",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"faculty"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Update Faculty",
-							"request": {
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"facultyId\": \"f-00002\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{UMPH}}/faculty/fa3d9708-5dcc-469d-bfc0-62d4f5e63a71",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"faculty",
-										"fa3d9708-5dcc-469d-bfc0-62d4f5e63a71"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Delete Faculty",
-							"request": {
-								"method": "DELETE",
-								"header": [],
-								"url": {
-									"raw": "{{UMPH}}/faculty/fa3d9708-5dcc-469d-bfc0-62d4f5e63a71",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"faculty",
-										"fa3d9708-5dcc-469d-bfc0-62d4f5e63a71"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Student",
-					"item": [
-						{
-							"name": "Get students",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{UMPH}}/student",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"student"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Get Single Student",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{UMPH}}/student/2d39b031-0a12-47d4-80da-29b2c124cc7e",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"student",
-										"2d39b031-0a12-47d4-80da-29b2c124cc7e"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Update Student",
-							"request": {
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"contactNo\": \"01791490304\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{UMPH}}/student/2d39b031-0a12-47d4-80da-29b2c124cc7e",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"student",
-										"2d39b031-0a12-47d4-80da-29b2c124cc7e"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Create Student",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"studentId\": \"200300001\",\r\n    \"firstName\": \"Suhag\",\r\n    \"lastName\": \"Al Amin\",\r\n    \"gender\": \"male\",\r\n    \"bloodGroup\": \"B+\",\r\n    \"email\": \"user@gmail.com\",\r\n    \"contactNo\": \"014785685\",\r\n   \r\n    \"academicFaculty\": {\r\n        \"connect\": {\r\n            \"id\": \"5ef3f77d-0654-4e09-a734-f0ec658827bc\"\r\n        }\r\n    },\r\n    \"academicDepartment\": {\r\n        \"connect\": {\r\n            \"id\": \"23a40690-7697-4ea4-95eb-b8015126cf85\"\r\n        }\r\n    },\r\n    \"academicSemester\": {\r\n        \"connect\": {\r\n            \"id\": \"32105355-88ff-4297-9d77-8715ec9afa3a\"\r\n        }\r\n    }\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{UMPH}}/student",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"student"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Delete Student",
-							"request": {
-								"method": "DELETE",
-								"header": [],
-								"url": {
-									"raw": "{{UMPH}}/student/2d39b031-0a12-47d4-80da-29b2c124cc7e",
-									"host": [
-										"{{UMPH}}"
-									],
-									"path": [
-										"student",
-										"2d39b031-0a12-47d4-80da-29b2c124cc7e"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				}
-			]
-		}
-	]
+  "info": {
+    "_postman_id": "d75ae597-eae9-4d8a-8a87-78bba9af987c",
+    "name": "University Management",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "22433617"
+  },
+  "item": [
+    {
+      "name": "Auth Service",
+      "item": [
+        {
+          "name": "AcademicDepartment",
+          "item": [
+            {
+              "name": "Get Departments",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{UMPH}}/academic-department",
+                  "host": ["{{UMPH}}"],
+                  "path": ["academic-department"]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Create Department",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"title\" : \"Department of Computer Science\",\r\n     \"academicFaculty\": \"6489918d26e556e4303286fe\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{UMPH}}/academic-department",
+                  "host": ["{{UMPH}}"],
+                  "path": ["academic-department"]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get Single Department",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{UMPH}}/academic-department/648ca039b9cdee71c35a5a52",
+                  "host": ["{{UMPH}}"],
+                  "path": ["academic-department", "648ca039b9cdee71c35a5a52"]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Update Department",
+              "request": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"title\" : \"Department of Computer Science\",\r\n     \"academicFaculty\": \"6489918d26e556e4303286fe\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{UMPH}}/academic-department/648ca039b9cdee71c35a5a52",
+                  "host": ["{{UMPH}}"],
+                  "path": ["academic-department", "648ca039b9cdee71c35a5a52"]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Delete Department",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{UMPH}}/academic-department/648ca039b9cdee71c35a5a52",
+                  "host": ["{{UMPH}}"],
+                  "path": ["academic-department", "648ca039b9cdee71c35a5a52"]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Academic Faculty",
+          "item": [
+            {
+              "name": "Create Faculty",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"title\": \"Faculty of Arts and Social Science\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{UMPH}}/academic-faculty",
+                  "host": ["{{UMPH}}"],
+                  "path": ["academic-faculty"]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get All Faculty",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "authorization",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIwMDMwMDAwMiIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNjg3NjA0NjkzLCJleHAiOjE2ODc2OTEwOTN9.OXU9Ih6PFyhQuH_kcytGTiNmZ4vaAIFREHW-F4ptvag",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{UMPH}}/academic-faculty",
+                  "host": ["{{UMPH}}"],
+                  "path": ["academic-faculty"]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get Faculty with pagination",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{UMPH}}/academic-faculty?page=1&limit=10",
+                  "host": ["{{UMPH}}"],
+                  "path": ["academic-faculty"],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Search Faculty",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{UMPH}}/academic-faculty?searchTerm=Science",
+                  "host": ["{{UMPH}}"],
+                  "path": ["academic-faculty"],
+                  "query": [
+                    {
+                      "key": "searchTerm",
+                      "value": "Science"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Filter Faculty",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{UMPH}}/academic-faculty?title=Faculty of Science and Engineering",
+                  "host": ["{{UMPH}}"],
+                  "path": ["academic-faculty"],
+                  "query": [
+                    {
+                      "key": "title",
+                      "value": "Faculty of Science and Engineering"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get Faculty with sorting",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{UMPH}}/academic-faculty?sortBy=createdAt&sortOrder=desc",
+                  "host": ["{{UMPH}}"],
+                  "path": ["academic-faculty"],
+                  "query": [
+                    {
+                      "key": "sortBy",
+                      "value": "createdAt"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "desc"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get Single Faculty",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{UMPH}}/academic-faculty/648991a426e556e430328702",
+                  "host": ["{{UMPH}}"],
+                  "path": ["academic-faculty", "648991a426e556e430328702"]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Update Faculty",
+              "request": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \r\n    \"title\": \"Faculty of Science and Engineering\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{UMPH}}/academic-faculty/648958de97f28dd102177fc5",
+                  "host": ["{{UMPH}}"],
+                  "path": ["academic-faculty", "648958de97f28dd102177fc5"]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Delete Faculty",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{UMPH}}/academic-faculty/648991a426e556e430328702",
+                  "host": ["{{UMPH}}"],
+                  "path": ["academic-faculty", "648991a426e556e430328702"]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Academic Semester",
+          "item": [
+            {
+              "name": "Create Academic Semester",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"title\": \"Fall\",\r\n    \"year\": \"2020\",\r\n    \"code\" :\"03\",\r\n    \"startMonth\" : \"January\",\r\n    \"endMonth\": \"May\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{UMPH}}/academic-semester",
+                  "host": ["{{UMPH}}"],
+                  "path": ["academic-semester"]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get Semester wtih sorting",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{UMPH}}/academic-semester?sortBy=year&sortOrder=asc",
+                  "host": ["{{UMPH}}"],
+                  "path": ["academic-semester"],
+                  "query": [
+                    {
+                      "key": "sortBy",
+                      "value": "year"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "asc"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Search Semester",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{UMPH}}/academic-semester?searchTerm=2027",
+                  "host": ["{{UMPH}}"],
+                  "path": ["academic-semester"],
+                  "query": [
+                    {
+                      "key": "searchTerm",
+                      "value": "2027"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Filter Semester",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{UMPH}}/academic-semester?year=2020&title=Fall&code=03",
+                  "host": ["{{UMPH}}"],
+                  "path": ["academic-semester"],
+                  "query": [
+                    {
+                      "key": "year",
+                      "value": "2020"
+                    },
+                    {
+                      "key": "title",
+                      "value": "Fall"
+                    },
+                    {
+                      "key": "code",
+                      "value": "03"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get All semester",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{UMPH}}/academic-semester",
+                  "host": ["{{UMPH}}"],
+                  "path": ["academic-semester"]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get Single Semester",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{UMPH}}/academic-semester/64895937f335e9e7015e21aa",
+                  "host": ["{{UMPH}}"],
+                  "path": ["academic-semester", "64895937f335e9e7015e21aa"]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Update semester",
+              "request": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \r\n    \"title\": \"Fall\",\r\n    \"code\": \"03\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{UMPH}}/academic-semester/64895937f335e9e7015e21aa",
+                  "host": ["{{UMPH}}"],
+                  "path": ["academic-semester", "64895937f335e9e7015e21aa"]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Delete Semester",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{UMPH}}/academic-semester/648844502cbf8be4ba367f50",
+                  "host": ["{{UMPH}}"],
+                  "path": ["academic-semester", "648844502cbf8be4ba367f50"]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "User",
+          "item": [
+            {
+              "name": "Student",
+              "item": [
+                {
+                  "name": "Get students",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{UMPH}}/students",
+                      "host": ["{{UMPH}}"],
+                      "path": ["students"]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Get Single Student",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{UMPH}}/students/648ca2402e18bd9924cc015e",
+                      "host": ["{{UMPH}}"],
+                      "path": ["students", "648ca2402e18bd9924cc015e"]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Update Student",
+                  "request": {
+                    "method": "PATCH",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"name\" : {\r\n        \"middleName\" : \"\"\r\n    },\r\n    \"contactNo\": \"01791490304\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{UMPH}}/students/200300001",
+                      "host": ["{{UMPH}}"],
+                      "path": ["students", "200300001"]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Create Student",
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"password\": \"123456\",     \r\n\r\n    \"student\": {\r\n        \"name\": {\r\n            \"firstName\": \"Suhag\",\r\n            \"lastName\": \"Al Amin\",\r\n            \"middleName\": \"\"\r\n        },\r\n        \"dateOfBirth\": \"22-10-2000\",\r\n        \"gender\": \"male\",\r\n        \"bloodGroup\": \"B+\",\r\n        \"email\": \"user@gmail.com\",\r\n        \"contactNo\": \"user_4\",\r\n        \"emergencyContactNo\": \"01600000000\",\r\n        \"presentAddress\": \"Tangail\",\r\n        \"permanentAddress\": \"Tangail\",\r\n        \"academicFaculty\": \"6489918d26e556e4303286fe\",\r\n        \"academicDepartment\": \"648ca039b9cdee71c35a5a52\",\r\n        \"academicSemester\": \"64895937f335e9e7015e21aa\",\r\n        \"guardian\": {\r\n            \"fatherName\": \"MD.ABBU\",\r\n            \"fatherOccupation\": \"Teacher\",\r\n            \"fatherContactNo\": \"01600000000\",\r\n            \"motherName\": \"Mrs.Ammu\",\r\n            \"motherOccupation\": \"Housewife\",\r\n            \"motherContactNo\": \"01600000000\",\r\n            \"address\": \"Tangail\"\r\n        },\r\n        \"localGuardian\": {\r\n            \"name\": \"Nai\",\r\n            \"occupation\": \"Service Holder\",\r\n            \"contactNo\": \"01600000000\",\r\n            \"address\": \"Dhaka\"\r\n        }\r\n\r\n      }\r\n}\r\n",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{UMPH}}/users/create-student",
+                      "host": ["{{UMPH}}"],
+                      "path": ["users", "create-student"]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Delete Student",
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{UMPH}}/students/200300001",
+                      "host": ["{{UMPH}}"],
+                      "path": ["students", "200300001"]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            },
+            {
+              "name": "Admin",
+              "item": [
+                {
+                  "name": "Get All Admin",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{UMPH}}/admins",
+                      "host": ["{{UMPH}}"],
+                      "path": ["admins"]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Get Single Admin",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{UMPH}}/admins/A-00001",
+                      "host": ["{{UMPH}}"],
+                      "path": ["admins", "A-00001"]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Create Admin",
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \r\n    \"admin\": {\r\n        \"name\": {\r\n            \"firstName\": \"Suhag\",\r\n            \"lastName\": \"Al Amin\",\r\n            \"middleName\": \"\"\r\n        },\r\n        \"dateOfBirth\": \"22-10-2000\",\r\n        \"gender\": \"male\",\r\n        \"bloodGroup\": \"B+\",\r\n        \"email\": \"user@gmail.com\",\r\n        \"contactNo\": \"user_4\",\r\n        \"emergencyContactNo\": \"01600000000\",\r\n        \"presentAddress\": \"Tangail\",\r\n        \"permanentAddress\": \"Tangail\",\r\n        \"academicFaculty\": \"6489918d26e556e4303286fe\",\r\n        \"academicDepartment\": \"648ca039b9cdee71c35a5a52\",\r\n        \"managementDepartment\": \"6492df2dde149ff3ec1b6985\",\r\n        \"designation\": \"Admin\"\r\n    }\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{UMPH}}/users/create-admin",
+                      "host": ["{{UMPH}}"],
+                      "path": ["users", "create-admin"]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Update Admin",
+                  "request": {
+                    "method": "PATCH",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n     \r\n        \"designation\": \"Super Admin\"\r\n    }",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{UMPH}}/admins/A-00001",
+                      "host": ["{{UMPH}}"],
+                      "path": ["admins", "A-00001"]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Delete Admin",
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{UMPH}}/admins/F-00003",
+                      "host": ["{{UMPH}}"],
+                      "path": ["admins", "F-00003"]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            },
+            {
+              "name": "Management Department",
+              "item": [
+                {
+                  "name": "Get All Department",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{UMPH}}/management-departments",
+                      "host": ["{{UMPH}}"],
+                      "path": ["management-departments"]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Get Single Deparment",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{UMPH}}/management-departments/6492df2dde149ff3ec1b6985",
+                      "host": ["{{UMPH}}"],
+                      "path": [
+                        "management-departments",
+                        "6492df2dde149ff3ec1b6985"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Create Department",
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n   \"title\": \"Admin\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{UMPH}}/management-departments",
+                      "host": ["{{UMPH}}"],
+                      "path": ["management-departments"]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Update Department",
+                  "request": {
+                    "method": "PATCH",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"title\": \"Super Admin\"\r\n    }",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{UMPH}}/management-departments/6492df2dde149ff3ec1b6985",
+                      "host": ["{{UMPH}}"],
+                      "path": [
+                        "management-departments",
+                        "6492df2dde149ff3ec1b6985"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Delete Department",
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{UMPH}}/management-departments/6492df2dde149ff3ec1b6985",
+                      "host": ["{{UMPH}}"],
+                      "path": [
+                        "management-departments",
+                        "6492df2dde149ff3ec1b6985"
+                      ]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            },
+            {
+              "name": "Auth",
+              "item": [
+                {
+                  "name": "Login",
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"id\": \"200300001\",\r\n    \"password\": \"123456\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{UMPH}}/auth/login",
+                      "host": ["{{UMPH}}"],
+                      "path": ["auth", "login"]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Refresh token",
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{UMPH}}/auth/refresh-token",
+                      "host": ["{{UMPH}}"],
+                      "path": ["auth", "refresh-token"]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Change Password",
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "authorization",
+                        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIwMDMwMDAwMSIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNjg4OTg3ODI2LCJleHAiOjE2ODkwNzQyMjZ9.LGMWJmayZEZb6oUnFsvceVTBXA05D-SesSBBrCLe9W4",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"currentPassword\": \"new123456\",\r\n    \"newPassword\": \"123456\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{UMPH}}/auth/change-password",
+                      "host": ["{{UMPH}}"],
+                      "path": ["auth", "change-password"]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            },
+            {
+              "name": "Faculty",
+              "item": [
+                {
+                  "name": "Get All Faculty",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{UMPH}}/faculties",
+                      "host": ["{{UMPH}}"],
+                      "path": ["faculties"]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Get Single Faculty",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{UMPH}}/faculties/F-00001",
+                      "host": ["{{UMPH}}"],
+                      "path": ["faculties", "F-00001"]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Create Faculty",
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"password\": \"123456\",\r\n    \"faculty\": {\r\n        \"name\": {\r\n            \"firstName\": \"Suhag\",\r\n            \"lastName\": \"Al Amin\",\r\n            \"middleName\": \"\"\r\n        },\r\n        \"dateOfBirth\": \"22-10-2000\",\r\n        \"gender\": \"male\",\r\n        \"bloodGroup\": \"B+\",\r\n        \"email\": \"user@gmail.com\",\r\n        \"contactNo\": \"user_4\",\r\n        \"emergencyContactNo\": \"01600000000\",\r\n        \"presentAddress\": \"Tangail\",\r\n        \"permanentAddress\": \"Tangail\",\r\n        \"academicFaculty\": \"6489918d26e556e4303286fe\",\r\n        \"academicDepartment\": \"648ca039b9cdee71c35a5a52\",\r\n        \"designation\": \"Head of CSE\"\r\n    }\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{UMPH}}/users/create-faculty",
+                      "host": ["{{UMPH}}"],
+                      "path": ["users", "create-faculty"]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Update Faculty",
+                  "request": {
+                    "method": "PATCH",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n        \"name\": {\r\n            \"firstName\": \"Suhag\",\r\n            \"lastName\": \"Al Amin\",\r\n            \"middleName\": \"\"\r\n        },\r\n        \"dateOfBirth\": \"22-10-2000\",\r\n        \"gender\": \"male\",\r\n        \"bloodGroup\": \"B+\",\r\n        \"email\": \"user@gmail.com\",\r\n        \"contactNo\": \"user_4\",\r\n        \"emergencyContactNo\": \"01600000000\",\r\n        \"presentAddress\": \"Tangail\",\r\n        \"permanentAddress\": \"Tangail\",\r\n        \"academicFaculty\": \"6489918d26e556e4303286fe\",\r\n        \"academicDepartment\": \"648ca039b9cdee71c35a5a52\",\r\n        \"designation\": \"Head of CSE\"\r\n    }",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{UMPH}}/faculties/F-00001",
+                      "host": ["{{UMPH}}"],
+                      "path": ["faculties", "F-00001"]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Delete Faculty",
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{UMPH}}/faculties/F-00003",
+                      "host": ["{{UMPH}}"],
+                      "path": ["faculties", "F-00003"]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Core Service",
+      "item": [
+        {
+          "name": "Academic Semester",
+          "item": [
+            {
+              "name": "Create Academic Semester",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"title\": \"Fall\",\r\n    \"year\": \"2021\",\r\n    \"code\" :\"03\",\r\n    \"startMonth\" : \"January\",\r\n    \"endMonth\": \"May\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{UMPH}}/academic-semester/",
+                  "host": ["{{UMPH}}"],
+                  "path": ["academic-semester", ""]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get Semester wtih sorting",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{UMPH}}/academic-semester?sortBy=year&sortOrder=desc",
+                  "host": ["{{UMPH}}"],
+                  "path": ["academic-semester"],
+                  "query": [
+                    {
+                      "key": "sortBy",
+                      "value": "year"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "desc"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Search Semester",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{UMPH}}/academic-semester?searchTerm=fa",
+                  "host": ["{{UMPH}}"],
+                  "path": ["academic-semester"],
+                  "query": [
+                    {
+                      "key": "searchTerm",
+                      "value": "fa"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Filter Semester",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{UMPH}}/academic-semester?year=2020&title=Fall&code=03",
+                  "host": ["{{UMPH}}"],
+                  "path": ["academic-semester"],
+                  "query": [
+                    {
+                      "key": "year",
+                      "value": "2020"
+                    },
+                    {
+                      "key": "title",
+                      "value": "Fall"
+                    },
+                    {
+                      "key": "code",
+                      "value": "03"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get All semester",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{UMPH}}/academic-semester?page=1&limit=1",
+                  "host": ["{{UMPH}}"],
+                  "path": ["academic-semester"],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get Single Semester",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{UMPH}}/academic-semester/32105355-88ff-4297-9d77-8715ec9afa3a",
+                  "host": ["{{UMPH}}"],
+                  "path": [
+                    "academic-semester",
+                    "32105355-88ff-4297-9d77-8715ec9afa3a"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Update semester",
+              "request": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \r\n    \"title\": \"Fall\",\r\n    \"code\": \"03\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{UMPH}}/academic-semester/32105355-88ff-4297-9d77-8715ec9afa3a",
+                  "host": ["{{UMPH}}"],
+                  "path": [
+                    "academic-semester",
+                    "32105355-88ff-4297-9d77-8715ec9afa3a"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Delete Semester",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{UMPH}}/academic-semester/32105355-88ff-4297-9d77-8715ec9afa3a",
+                  "host": ["{{UMPH}}"],
+                  "path": [
+                    "academic-semester",
+                    "32105355-88ff-4297-9d77-8715ec9afa3a"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Academic Faculty",
+          "item": [
+            {
+              "name": "Create Faculty",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"title\": \"Faculty of Arts and Social Science\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{UMPH}}/academic-faculty/",
+                  "host": ["{{UMPH}}"],
+                  "path": ["academic-faculty", ""]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get All Faculty",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "authorization",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIwMDMwMDAwMiIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNjg3NjA0NjkzLCJleHAiOjE2ODc2OTEwOTN9.OXU9Ih6PFyhQuH_kcytGTiNmZ4vaAIFREHW-F4ptvag",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{UMPH}}/academic-faculty",
+                  "host": ["{{UMPH}}"],
+                  "path": ["academic-faculty"]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get Faculty with pagination",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{UMPH}}/academic-faculty?page=1&limit=10",
+                  "host": ["{{UMPH}}"],
+                  "path": ["academic-faculty"],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Search Faculty",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{UMPH}}/academic-faculty?searchTerm=Science",
+                  "host": ["{{UMPH}}"],
+                  "path": ["academic-faculty"],
+                  "query": [
+                    {
+                      "key": "searchTerm",
+                      "value": "Science"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Filter Faculty",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{UMPH}}/academic-faculty?title=Faculty of Science and Engineering",
+                  "host": ["{{UMPH}}"],
+                  "path": ["academic-faculty"],
+                  "query": [
+                    {
+                      "key": "title",
+                      "value": "Faculty of Science and Engineering"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get Faculty with sorting",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{UMPH}}/academic-faculty?sortBy=createdAt&sortOrder=desc",
+                  "host": ["{{UMPH}}"],
+                  "path": ["academic-faculty"],
+                  "query": [
+                    {
+                      "key": "sortBy",
+                      "value": "createdAt"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "desc"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get Single Faculty",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{UMPH}}/academic-faculty/d7b2b224-8355-4017-b20e-0b7e95f14f0b",
+                  "host": ["{{UMPH}}"],
+                  "path": [
+                    "academic-faculty",
+                    "d7b2b224-8355-4017-b20e-0b7e95f14f0b"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Update Faculty",
+              "request": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \r\n    \"title\": \"Faculty of Science and Engineering\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{UMPH}}/academic-faculty/5ef3f77d-0654-4e09-a734-f0ec658827bc",
+                  "host": ["{{UMPH}}"],
+                  "path": [
+                    "academic-faculty",
+                    "5ef3f77d-0654-4e09-a734-f0ec658827bc"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Delete Faculty",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{UMPH}}/academic-faculty/5ef3f77d-0654-4e09-a734-f0ec658827bc",
+                  "host": ["{{UMPH}}"],
+                  "path": [
+                    "academic-faculty",
+                    "5ef3f77d-0654-4e09-a734-f0ec658827bc"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Academic Department",
+          "item": [
+            {
+              "name": "Get Departments",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{UMPH}}/academic-department",
+                  "host": ["{{UMPH}}"],
+                  "path": ["academic-department"]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Create Department",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"title\": \"Department of Computer Science\",\r\n    \"academicFaculty\": {\r\n        \"connect\": {\r\n            \"id\": \"5ef3f77d-0654-4e09-a734-f0ec658827bc\"\r\n        }\r\n    }\r\n}\r\n",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{UMPH}}/academic-department/",
+                  "host": ["{{UMPH}}"],
+                  "path": ["academic-department", ""]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get Single Department",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{UMPH}}/academic-department/23a40690-7697-4ea4-95eb-b8015126cf85",
+                  "host": ["{{UMPH}}"],
+                  "path": [
+                    "academic-department",
+                    "23a40690-7697-4ea4-95eb-b8015126cf85"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Update Department",
+              "request": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"title\": \"Department of Computer Science\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{UMPH}}/academic-department/23a40690-7697-4ea4-95eb-b8015126cf85",
+                  "host": ["{{UMPH}}"],
+                  "path": [
+                    "academic-department",
+                    "23a40690-7697-4ea4-95eb-b8015126cf85"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Delete",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{UMPH}}/academic-department/23a40690-7697-4ea4-95eb-b8015126cf85",
+                  "host": ["{{UMPH}}"],
+                  "path": [
+                    "academic-department",
+                    "23a40690-7697-4ea4-95eb-b8015126cf85"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Faculty",
+          "item": [
+            {
+              "name": "Get All Faculty",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{UMPH}}/faculty",
+                  "host": ["{{UMPH}}"],
+                  "path": ["faculty"]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get Single Faculty",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{UMPH}}/faculty/fa3d9708-5dcc-469d-bfc0-62d4f5e63a71",
+                  "host": ["{{UMPH}}"],
+                  "path": ["faculty", "fa3d9708-5dcc-469d-bfc0-62d4f5e63a71"]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Create Faculty",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"facultyId\": \"F-00001\",\r\n    \"firstName\": \"Suhag\",\r\n    \"lastName\": \"Al Amin\",\r\n    \"gender\": \"male\",\r\n    \"bloodGroup\": \"B+\",\r\n    \"email\": \"user@gmail.com\",\r\n    \"contactNo\": \"0175864645\",\r\n    \"designation\": \"Head of CSE\",\r\n    \"academicFaculty\": {\r\n        \"connect\": {\r\n            \"id\": \"5ef3f77d-0654-4e09-a734-f0ec658827bc\"\r\n        }\r\n    },\r\n    \"academicDepartment\": {\r\n        \"connect\": {\r\n            \"id\": \"23a40690-7697-4ea4-95eb-b8015126cf85\"\r\n        }\r\n    }\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{UMPH}}/faculty",
+                  "host": ["{{UMPH}}"],
+                  "path": ["faculty"]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Update Faculty",
+              "request": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"facultyId\": \"f-00002\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{UMPH}}/faculty/fa3d9708-5dcc-469d-bfc0-62d4f5e63a71",
+                  "host": ["{{UMPH}}"],
+                  "path": ["faculty", "fa3d9708-5dcc-469d-bfc0-62d4f5e63a71"]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Delete Faculty",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{UMPH}}/faculty/fa3d9708-5dcc-469d-bfc0-62d4f5e63a71",
+                  "host": ["{{UMPH}}"],
+                  "path": ["faculty", "fa3d9708-5dcc-469d-bfc0-62d4f5e63a71"]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Student",
+          "item": [
+            {
+              "name": "Get students",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{UMPH}}/student",
+                  "host": ["{{UMPH}}"],
+                  "path": ["student"]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get Single Student",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{UMPH}}/student/2d39b031-0a12-47d4-80da-29b2c124cc7e",
+                  "host": ["{{UMPH}}"],
+                  "path": ["student", "2d39b031-0a12-47d4-80da-29b2c124cc7e"]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Update Student",
+              "request": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"contactNo\": \"01791490304\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{UMPH}}/student/2d39b031-0a12-47d4-80da-29b2c124cc7e",
+                  "host": ["{{UMPH}}"],
+                  "path": ["student", "2d39b031-0a12-47d4-80da-29b2c124cc7e"]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Create Student",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"studentId\": \"200300001\",\r\n    \"firstName\": \"Suhag\",\r\n    \"lastName\": \"Al Amin\",\r\n    \"gender\": \"male\",\r\n    \"bloodGroup\": \"B+\",\r\n    \"email\": \"user@gmail.com\",\r\n    \"contactNo\": \"014785685\",\r\n   \r\n    \"academicFaculty\": {\r\n        \"connect\": {\r\n            \"id\": \"5ef3f77d-0654-4e09-a734-f0ec658827bc\"\r\n        }\r\n    },\r\n    \"academicDepartment\": {\r\n        \"connect\": {\r\n            \"id\": \"23a40690-7697-4ea4-95eb-b8015126cf85\"\r\n        }\r\n    },\r\n    \"academicSemester\": {\r\n        \"connect\": {\r\n            \"id\": \"32105355-88ff-4297-9d77-8715ec9afa3a\"\r\n        }\r\n    }\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{UMPH}}/student",
+                  "host": ["{{UMPH}}"],
+                  "path": ["student"]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Delete Student",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{UMPH}}/student/2d39b031-0a12-47d4-80da-29b2c124cc7e",
+                  "host": ["{{UMPH}}"],
+                  "path": ["student", "2d39b031-0a12-47d4-80da-29b2c124cc7e"]
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }
