@@ -131,6 +131,19 @@ const createSemesterFromEvent = async (
     syncId: e.id,
   });
 };
+const updateSemesterFromEvent = async (
+  e: Partial<IAcademicSemesterCreatedEvent>
+): Promise<void> => {
+  await AcademicSemester.findOneAndUpdate(
+    {
+      syncId: e.id,
+    },
+    e,
+    {
+      new: true,
+    }
+  );
+};
 
 export const AcademicSemesterService = {
   createSemester,
@@ -139,4 +152,5 @@ export const AcademicSemesterService = {
   updateSemester,
   deleteSemester,
   createSemesterFromEvent,
+  updateSemesterFromEvent,
 };
