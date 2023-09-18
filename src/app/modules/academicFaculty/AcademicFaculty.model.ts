@@ -13,6 +13,10 @@ const academicFacultySchema = new Schema<
       type: String,
       required: true,
     },
+    syncId: {
+      type: String,
+      required: true,
+    },
   },
   {
     timestamps: true,

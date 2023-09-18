@@ -7,3 +7,5 @@ export const academicFacultyTitleMapper = [
 export const academicFacultySearchableFields = ['title'];
 
 export const academicFacultyFilterableFields = ['searchTerm', 'title'];
+
+export const eventAcademicFacultyCreated = 'academic-faculty.created';

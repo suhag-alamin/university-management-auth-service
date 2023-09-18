@@ -5,6 +5,7 @@ import { IPaginationOptions } from '../../../interfaces/pagination';
 import { academicDepartmentSearchableFields } from './academicDepartment.constants';
 import {
   IAcademicDepartment,
+  IAcademicDepartmentCreatedEvent,
   IAcademicDepartmentFilters,
 } from './academicDepartment.interface';
 import { AcademicDepartment } from './academicDepartment.model';
@@ -103,6 +104,15 @@ const deleteDepartment = async (
   const result = await AcademicDepartment.findByIdAndDelete(id);
   return result;
 };
+const createDepartmentFromEvent = async (
+  e: IAcademicDepartmentCreatedEvent
+): Promise<void> => {
+  await AcademicDepartment.create({
+    title: e.title,
+    academicFaculty: e.academicFaculty,
+    syncId: e.id,
+  });
+};
 
 export const AcademicDepartmentService = {
   getAllDepartments,
@@ -110,4 +120,5 @@ export const AcademicDepartmentService = {
   updateDepartment,
   deleteDepartment,
   createDepartment,
+  createDepartmentFromEvent,
 };

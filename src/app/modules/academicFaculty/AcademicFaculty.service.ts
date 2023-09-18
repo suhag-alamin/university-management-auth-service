@@ -7,6 +7,7 @@ import {
 } from './academicFaculty.constant';
 import {
   IAcademicFaculty,
+  IAcademicFacultyCreatedEvent,
   IAcademicFacultyFilters,
 } from './academicFaculty.interface';
 import { AcademicFaculty } from './academicFaculty.model';
@@ -107,10 +108,20 @@ const deleteFacultyFromDB = async (id: string) => {
   return result;
 };
 
+const createFacultyFromEvent = async (
+  e: IAcademicFacultyCreatedEvent
+): Promise<void> => {
+  await AcademicFaculty.create({
+    title: e.title,
+    syncId: e.id,
+  });
+};
+
 export const AcademicFacultyService = {
   createAcademicFacultyToDB,
   getAcademicFacultyFromDB,
   getSingleFacultyFromDB,
   updateFacultyToDB,
   deleteFacultyFromDB,
+  createFacultyFromEvent,
 };

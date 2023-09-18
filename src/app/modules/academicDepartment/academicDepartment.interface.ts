@@ -4,6 +4,12 @@ import { IAcademicFaculty } from '../academicFaculty/academicFaculty.interface';
 export type IAcademicDepartment = {
   title: string;
   academicFaculty: Types.ObjectId | IAcademicFaculty;
+  syncId: string;
+};
+export type IAcademicDepartmentCreatedEvent = {
+  title: string;
+  academicFaculty: Types.ObjectId | IAcademicFaculty;
+  id: string;
 };
 
 export type AcademicDepartmentModel = Model<
