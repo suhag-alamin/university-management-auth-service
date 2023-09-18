@@ -144,6 +144,13 @@ const updateSemesterFromEvent = async (
     }
   );
 };
+const deleteSemesterFromEvent = async (
+  e: Partial<IAcademicSemesterCreatedEvent>
+): Promise<void> => {
+  await AcademicSemester.deleteOne({
+    syncId: e.id,
+  });
+};
 
 export const AcademicSemesterService = {
   createSemester,
@@ -153,4 +160,5 @@ export const AcademicSemesterService = {
   deleteSemester,
   createSemesterFromEvent,
   updateSemesterFromEvent,
+  deleteSemesterFromEvent,
 };

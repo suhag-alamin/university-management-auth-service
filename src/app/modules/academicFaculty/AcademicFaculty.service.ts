@@ -1,6 +1,9 @@
 import httpStatus from 'http-status';
+import { SortOrder } from 'mongoose';
 import ApiError from '../../../errors/ApiError';
+import { paginationHelpers } from '../../../helpers/paginationHelper';
 import { IGenericResponse } from '../../../interfaces/common';
+import { IPaginationOptions } from '../../../interfaces/pagination';
 import {
   academicFacultySearchableFields,
   academicFacultyTitleMapper,
@@ -11,9 +14,6 @@ import {
   IAcademicFacultyFilters,
 } from './academicFaculty.interface';
 import { AcademicFaculty } from './academicFaculty.model';
-import { IPaginationOptions } from '../../../interfaces/pagination';
-import { paginationHelpers } from '../../../helpers/paginationHelper';
-import { SortOrder } from 'mongoose';
 
 const createAcademicFacultyToDB = async (
   payload: IAcademicFaculty
@@ -116,6 +116,26 @@ const createFacultyFromEvent = async (
     syncId: e.id,
   });
 };
+const updateFacultyFromEvent = async (
+  e: IAcademicFacultyCreatedEvent
+): Promise<void> => {
+  await AcademicFaculty.findOneAndUpdate(
+    {
+      syncId: e.id,
+    },
+    e,
+    {
+      new: true,
+    }
+  );
+};
+const deleteFacultyFromEvent = async (
+  e: IAcademicFacultyCreatedEvent
+): Promise<void> => {
+  await AcademicFaculty.deleteOne({
+    syncId: e.id,
+  });
+};
 
 export const AcademicFacultyService = {
   createAcademicFacultyToDB,
@@ -124,4 +144,6 @@ export const AcademicFacultyService = {
   updateFacultyToDB,
   deleteFacultyFromDB,
   createFacultyFromEvent,
+  updateFacultyFromEvent,
+  deleteFacultyFromEvent,
 };

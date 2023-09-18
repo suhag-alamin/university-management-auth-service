@@ -113,6 +113,26 @@ const createDepartmentFromEvent = async (
     syncId: e.id,
   });
 };
+const updateDepartmentFromEvent = async (
+  e: IAcademicDepartmentCreatedEvent
+): Promise<void> => {
+  await AcademicDepartment.findOneAndUpdate(
+    {
+      syncId: e.id,
+    },
+    e,
+    {
+      new: true,
+    }
+  );
+};
+const deleteDepartmentFromEvent = async (
+  e: IAcademicDepartmentCreatedEvent
+): Promise<void> => {
+  await AcademicDepartment.deleteOne({
+    syncId: e.id,
+  });
+};
 
 export const AcademicDepartmentService = {
   getAllDepartments,
@@ -121,4 +141,6 @@ export const AcademicDepartmentService = {
   deleteDepartment,
   createDepartment,
   createDepartmentFromEvent,
+  updateDepartmentFromEvent,
+  deleteDepartmentFromEvent,
 };

@@ -1,6 +1,7 @@
 import { RedisClient } from '../../../shared/redis';
 import {
   eventAcademicSemesterCreated,
+  eventAcademicSemesterDeleted,
   eventAcademicSemesterUpdated,
 } from './academicSemester.constant';
 import { IAcademicSemesterCreatedEvent } from './academicSemester.interface';
@@ -12,6 +13,10 @@ const InitAcademicSemesterEvents = () => {
     await AcademicSemesterService.createSemesterFromEvent(data);
   });
   RedisClient.subscribe(eventAcademicSemesterUpdated, async (e: string) => {
+    const data: IAcademicSemesterCreatedEvent = JSON.parse(e);
+    await AcademicSemesterService.updateSemesterFromEvent(data);
+  });
+  RedisClient.subscribe(eventAcademicSemesterDeleted, async (e: string) => {
     const data: IAcademicSemesterCreatedEvent = JSON.parse(e);
     await AcademicSemesterService.updateSemesterFromEvent(data);
   });
