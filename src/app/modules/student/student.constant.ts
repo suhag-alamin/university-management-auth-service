@@ -15,3 +15,7 @@ export const studentFilterableFields = [
   'emergencyContactNo',
   'bloodGroup',
 ];
+
+export const eventStudentCreated = 'student.created';
+export const eventStudentUpdated = 'student.updated';
+export const eventStudentDeleted = 'student.deleted';

@@ -3,11 +3,16 @@ import { SortOrder } from 'mongoose';
 import { paginationHelpers } from '../../../helpers/paginationHelper';
 import { IGenericResponse } from '../../../interfaces/common';
 import { IPaginationOptions } from '../../../interfaces/pagination';
-import { studentSearchableFields } from './student.constant';
+import {
+  eventStudentDeleted,
+  eventStudentUpdated,
+  studentSearchableFields,
+} from './student.constant';
 import { IStudent, IStudentFilters } from './student.interface';
 import { Student } from './student.model';
 import ApiError from '../../../errors/ApiError';
 import httpStatus from 'http-status';
+import { RedisClient } from '../../../shared/redis';
 
 const getAllStudentsFromDB = async (
   filters: IStudentFilters,
@@ -119,6 +124,11 @@ const updateSemesterToDB = async (id: string, payload: Partial<IStudent>) => {
       new: true,
     }
   );
+
+  if (result) {
+    await RedisClient.publish(eventStudentUpdated, JSON.stringify(result));
+  }
+
   return result;
 };
 
@@ -127,6 +137,11 @@ const deleteSemesterToDB = async (id: string): Promise<IStudent | null> => {
     .populate('academicSemester')
     .populate('academicFaculty')
     .populate('academicDepartment');
+
+  if (result) {
+    await RedisClient.publish(eventStudentDeleted, JSON.stringify(result));
+  }
+
   return result;
 };
 
