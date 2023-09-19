@@ -16,33 +16,19 @@ router.post(
 
 router.get(
   '/',
-  auth(
-    ENUM_USER_ROLE.SUPER_ADMIN,
-    ENUM_USER_ROLE.ADMIN,
-    ENUM_USER_ROLE.FACULTY,
-    ENUM_USER_ROLE.STUDENT
-  ),
+  auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
   AcademicFacultyController.getAcademicFaculty
 );
 router.get(
   '/:id',
-  auth(
-    ENUM_USER_ROLE.SUPER_ADMIN,
-    ENUM_USER_ROLE.ADMIN,
-    ENUM_USER_ROLE.FACULTY,
-    ENUM_USER_ROLE.STUDENT
-  ),
+  auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
   AcademicFacultyController.getSingleFaculty
 );
 
 router.patch(
   '/:id',
   validateRequest(AcademicFacultyValidation.updateAcademicFacultyZodSchema),
-  auth(
-    ENUM_USER_ROLE.SUPER_ADMIN,
-    ENUM_USER_ROLE.ADMIN,
-    ENUM_USER_ROLE.FACULTY
-  ),
+  auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
   AcademicFacultyController.updateFaculty
 );
 

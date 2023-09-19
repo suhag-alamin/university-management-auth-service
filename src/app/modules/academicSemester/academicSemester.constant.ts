@@ -46,6 +46,7 @@ export const academicSemesterFilterableFields = [
   'title',
   'code',
   'year',
+  'syncId',
 ];
 
 export const eventAcademicSemesterCreated = 'academic-semester.created';

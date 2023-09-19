@@ -1,7 +1,7 @@
 import { z } from 'zod';
-import { bloodGroup, gender } from '../student/student.constant';
+import { bloodGroup, gender } from './user.constant';
 
-const createUserZodSchema = z.object({
+const createStudentZodSchema = z.object({
   body: z.object({
     password: z.string().optional(),
     student: z.object({
@@ -120,11 +120,7 @@ const createFacultyZodSchema = z.object({
       emergencyContactNo: z.string({
         required_error: 'Emergency contact number is required',
       }),
-      bloodGroup: z
-        .string({
-          required_error: 'Blood group is required',
-        })
-        .optional(),
+      bloodGroup: z.enum([...bloodGroup] as [string, ...string[]]).optional(),
       presentAddress: z.string({
         required_error: 'Present address is required',
       }),
@@ -173,9 +169,7 @@ const createAdminZodSchema = z.object({
         required_error: 'Gender is required',
       }),
 
-      bloodGroup: z.string({
-        required_error: 'Blood group is required',
-      }),
+      bloodGroup: z.enum([...bloodGroup] as [string, ...string[]]).optional(),
 
       email: z
         .string({
@@ -213,7 +207,7 @@ const createAdminZodSchema = z.object({
 });
 
 export const UserValidation = {
-  createUserZodSchema,
+  createStudentZodSchema,
   createFacultyZodSchema,
   createAdminZodSchema,
 };

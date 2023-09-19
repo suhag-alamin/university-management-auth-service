@@ -16,6 +16,8 @@ import { Faculty } from '../faculty/faculty.model';
 import { IFaculty } from '../faculty/faculty.interface';
 import { IAdmin } from '../admin/admin.interface';
 import { Admin } from '../admin/admin.model';
+import { RedisClient } from '../../../shared/redis';
+import { eventStudentCreated } from './user.constant';
 
 const createStudentToDB = async (
   student: IStudent,
@@ -82,6 +84,13 @@ const createStudentToDB = async (
         },
       ],
     });
+  }
+
+  if (newUserData) {
+    await RedisClient.publish(
+      eventStudentCreated,
+      JSON.stringify(newUserData.student)
+    );
   }
 
   return newUserData;
@@ -205,8 +214,6 @@ const createAdminToDB = async (
 
   return newUserAllData;
 };
-
-// ! need to do create faculty and create admin
 
 export const UserService = {
   createStudentToDB,

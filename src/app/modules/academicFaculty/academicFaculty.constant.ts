@@ -6,7 +6,11 @@ export const academicFacultyTitleMapper = [
 
 export const academicFacultySearchableFields = ['title'];
 
-export const academicFacultyFilterableFields = ['searchTerm', 'title'];
+export const academicFacultyFilterableFields = [
+  'searchTerm',
+  'title',
+  'syncId',
+];
 
 export const eventAcademicFacultyCreated = 'academic-faculty.created';
 export const eventAcademicFacultyUpdated = 'academic-faculty.updated';
