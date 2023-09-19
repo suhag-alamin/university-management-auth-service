@@ -20,6 +20,9 @@ const userSchema = new Schema<IUser, Record<string, unknown>, IUserMethods>(
       required: true,
       select: 0,
     },
+    profileImage: {
+      type: String,
+    },
     needPasswordChange: {
       type: Boolean,
       default: true,
