@@ -11,6 +11,8 @@ import { User } from '../user/user.model';
 import { IFaculty, IFacultyFilters } from './faculty.interface';
 import { Faculty } from './faculty.model';
 import { facultySearchableFields } from './facuty.constant';
+import { RedisClient } from '../../../shared/redis';
+import { eventFacultyDeleted, eventFacultyUpdated } from './faculty.constant';
 
 const getAllFaculties = async (
   filters: IFacultyFilters,
@@ -98,6 +100,11 @@ const updateFaculty = async (
   const result = await Faculty.findOneAndUpdate({ id }, updatedFacultyData, {
     new: true,
   });
+
+  if (result) {
+    await RedisClient.publish(eventFacultyUpdated, JSON.stringify(result));
+  }
+
   return result;
 };
 
@@ -122,6 +129,10 @@ const deleteFaculty = async (id: string): Promise<IFaculty | null> => {
     await User.deleteOne({ id });
     session.commitTransaction();
     session.endSession();
+
+    if (faculty) {
+      await RedisClient.publish(eventFacultyDeleted, JSON.stringify(faculty));
+    }
 
     return faculty;
   } catch (error) {
